@@ -1,175 +1,164 @@
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { MapPin, Mail, Phone, Globe, ArrowRight } from "lucide-react";
-
-const services = [
-  {
-    title: "IT Consulting",
-    description: "Tailored guidance to optimize your technology strategy",
-    icon: "💡",
-  },
-  {
-    title: "Software Development",
-    description: "Custom software solutions to meet your specific needs",
-    icon: "💻",
-  },
-  {
-    title: "SaaS Solutions",
-    description: "Scalable, efficient Software-as-a-Service platforms",
-    icon: "🚀",
-  },
-  {
-    title: "Web Applications",
-    description: "Modern, user-friendly web applications",
-    icon: "🌐",
-  },
-  {
-    title: "Graphic Design",
-    description: "Eye-catching designs for a variety of needs",
-    icon: "🎨",
-  },
-  {
-    title: "Custom Services",
-    description: "Bespoke IT solutions designed to fit your unique requirements",
-    icon: "⚙️",
-  },
-];
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Github, Linkedin, Mail, MessageSquare, Phone } from "lucide-react";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F2FCE2] to-[#E5DEFF]">
+    <div className="min-h-screen bg-gradient-to-br from-background to-muted">
       {/* Hero Section */}
-      <section className="container pt-20 pb-16">
-        <div className="flex flex-col md:flex-row items-center gap-8">
-          <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden">
-            <img
-              src="/lovable-uploads/5b7244af-823a-4e71-98ba-15ac6a5d06d3.png"
-              alt="David Grohman"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="text-center md:text-left">
-            <h1 className="text-4xl md:text-6xl font-bold text-primary mb-4 animate-fade-up">
-              David Grohman
-            </h1>
-            <div className="inline-block bg-primary text-white px-4 py-2 rounded-full text-lg mb-6 animate-fade-up" style={{ animationDelay: "0.2s" }}>
-              IT Specialista
-            </div>
-            <p className="text-lg text-gray-600 max-w-xl animate-fade-up" style={{ animationDelay: "0.4s" }}>
-              Student a freelancer s odpovědným přístupem, zkušený v programování a grafice. 
-              Mám silné analytické myšlení, výborné komunikační dovednosti a chuť se neustále učit.
-            </p>
-          </div>
+      <section className="container mx-auto px-4 py-20 flex flex-col md:flex-row items-center justify-between">
+        <div className="md:w-1/2 space-y-6 animate-fade-up">
+          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+            Software Developer & IT Consultant
+          </h1>
+          <p className="text-lg text-muted-foreground">
+            Transforming ideas into powerful digital solutions
+          </p>
+          <Button size="lg" className="animate-fade-in">
+            Get in Touch
+          </Button>
+        </div>
+        <div className="md:w-1/2 mt-10 md:mt-0">
+          <img
+            src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
+            alt="Professional"
+            className="rounded-lg shadow-2xl animate-fade-in"
+          />
         </div>
       </section>
 
-      {/* Contact Info */}
-      <section className="container py-8">
-        <div className="flex flex-wrap justify-center gap-6 text-gray-600">
-          <a href="tel:+420774727074" className="flex items-center gap-2 hover:text-primary transition-colors">
-            <Phone className="w-5 h-5" />
-            +420 774 727 074
-          </a>
-          <a href="mailto:david@grohman.cz" className="flex items-center gap-2 hover:text-primary transition-colors">
-            <Mail className="w-5 h-5" />
-            david@grohman.cz
-          </a>
-          <div className="flex items-center gap-2">
-            <MapPin className="w-5 h-5" />
-            Chrudim, Pardubický
+      {/* About Section */}
+      <section className="bg-muted/50 py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-10">About Me</h2>
+          <div className="grid md:grid-cols-2 gap-10">
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold">My Journey</h3>
+              <p className="text-muted-foreground">
+                With years of experience in software development and IT consulting,
+                I've helped numerous businesses transform their digital presence
+                and optimize their technology strategies.
+              </p>
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold">Experience</h3>
+              <p className="text-muted-foreground">
+                I specialize in creating custom software solutions, developing
+                scalable SaaS platforms, and providing comprehensive IT
+                consulting services.
+              </p>
+            </div>
           </div>
-          <a href="https://linktr.ee/david.grohman" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors">
-            <Globe className="w-5 h-5" />
-            linktr.ee/david.grohman
-          </a>
         </div>
       </section>
 
       {/* Services Section */}
-      <section className="container py-16">
-        <h2 className="text-3xl font-bold text-center mb-12">My Services</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
-            <Card key={index} className="p-6 hover:shadow-lg transition-shadow animate-fade-up" style={{ animationDelay: `${index * 0.1}s` }}>
-              <div className="text-4xl mb-4">{service.icon}</div>
-              <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-              <p className="text-gray-600 mb-4">{service.description}</p>
-              <Button variant="ghost" className="group">
-                Learn More
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-10">Services</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((service, index) => (
+              <Card key={index} className="hover:shadow-lg transition-shadow">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
+                  <p className="text-muted-foreground">{service.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio Section */}
+      <section className="bg-muted/50 py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-10">Portfolio</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Portfolio items would go here */}
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-semibold mb-3">Project 1</h3>
+                <p className="text-muted-foreground">
+                  Description of the project and its impact.
+                </p>
+              </CardContent>
             </Card>
-          ))}
-        </div>
-      </section>
-
-      {/* Skills Section */}
-      <section className="container py-16">
-        <h2 className="text-3xl font-bold text-center mb-12">Skills</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <div className="space-y-4">
-            <div className="space-y-2">
-              <div className="flex justify-between">
-                <span className="font-medium">Problem Solving</span>
-                <span>95%</span>
-              </div>
-              <div className="h-2 bg-gray-200 rounded-full">
-                <div className="h-full w-[95%] bg-primary rounded-full"></div>
-              </div>
-            </div>
-            <div className="space-y-2">
-              <div className="flex justify-between">
-                <span className="font-medium">Programming</span>
-                <span>90%</span>
-              </div>
-              <div className="h-2 bg-gray-200 rounded-full">
-                <div className="h-full w-[90%] bg-primary rounded-full"></div>
-              </div>
-            </div>
-            <div className="space-y-2">
-              <div className="flex justify-between">
-                <span className="font-medium">Design</span>
-                <span>85%</span>
-              </div>
-              <div className="h-2 bg-gray-200 rounded-full">
-                <div className="h-full w-[85%] bg-primary rounded-full"></div>
-              </div>
-            </div>
-          </div>
-          <div className="space-y-4">
-            <div className="space-y-2">
-              <div className="flex justify-between">
-                <span className="font-medium">Analytics</span>
-                <span>95%</span>
-              </div>
-              <div className="h-2 bg-gray-200 rounded-full">
-                <div className="h-full w-[95%] bg-primary rounded-full"></div>
-              </div>
-            </div>
-            <div className="space-y-2">
-              <div className="flex justify-between">
-                <span className="font-medium">Communication</span>
-                <span>90%</span>
-              </div>
-              <div className="h-2 bg-gray-200 rounded-full">
-                <div className="h-full w-[90%] bg-primary rounded-full"></div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Languages */}
-      <section className="container py-16">
-        <h2 className="text-3xl font-bold text-center mb-12">Languages</h2>
-        <div className="flex justify-center gap-8">
-          <img src="https://flagcdn.com/w40/cz.png" alt="Czech" className="w-10 h-auto" />
-          <img src="https://flagcdn.com/w40/de.png" alt="German" className="w-10 h-auto" />
-          <img src="https://flagcdn.com/w40/gb.png" alt="English" className="w-10 h-auto" />
+      {/* Contact Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-10">Get in Touch</h2>
+          <div className="grid md:grid-cols-2 gap-10">
+            <div className="space-y-6">
+              <Input placeholder="Name" />
+              <Input type="email" placeholder="Email" />
+              <Input placeholder="Subject" />
+              <Textarea placeholder="Your message" className="h-32" />
+              <Button size="lg" className="w-full">
+                Send Message
+              </Button>
+            </div>
+            <div className="space-y-6">
+              <h3 className="text-xl font-semibold">Connect With Me</h3>
+              <div className="space-y-4">
+                <a href="mailto:contact@example.com" className="flex items-center space-x-3 text-muted-foreground hover:text-primary">
+                  <Mail className="h-5 w-5" />
+                  <span>contact@example.com</span>
+                </a>
+                <a href="tel:+1234567890" className="flex items-center space-x-3 text-muted-foreground hover:text-primary">
+                  <Phone className="h-5 w-5" />
+                  <span>+1 (234) 567-890</span>
+                </a>
+                <div className="flex space-x-4">
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                    <Github className="h-6 w-6 text-muted-foreground hover:text-primary" />
+                  </a>
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                    <Linkedin className="h-6 w-6 text-muted-foreground hover:text-primary" />
+                  </a>
+                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                    <MessageSquare className="h-6 w-6 text-muted-foreground hover:text-primary" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
   );
 };
+
+const services = [
+  {
+    title: "IT Consulting",
+    description: "Expert guidance to optimize your technology strategy and infrastructure.",
+  },
+  {
+    title: "Software Development",
+    description: "Custom software solutions tailored to your specific business needs.",
+  },
+  {
+    title: "SaaS Development",
+    description: "Scalable and efficient Software-as-a-Service platforms.",
+  },
+  {
+    title: "Web Applications",
+    description: "Modern, responsive, and user-friendly web applications.",
+  },
+  {
+    title: "Graphic Design",
+    description: "Eye-catching designs that communicate your brand's message.",
+  },
+  {
+    title: "Custom Services",
+    description: "Bespoke IT solutions designed to meet your unique requirements.",
+  },
+];
 
 export default Index;
